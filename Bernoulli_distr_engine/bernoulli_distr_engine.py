@@ -91,7 +91,7 @@ class Visualizer:
     
     def plot_data(self):
         #plot based on results of simulation and put lines at p hat and CI bounds
-        plt.hist(self.results, , alpha = 0.6)
+        plt.hist(self.results, 50, alpha = 0.6)
         plt.axvline(x = self.p_hat, color = 'green', label = "Observed P hat")
         lower_ci_bound = self.ci[0]
         upper_ci_bound = self.ci[1]
@@ -144,9 +144,9 @@ def main():
             num_simulations = int(input("Enter number of simulations you would like to run: "))
             if num_simulations <= 0:
                 raise ValueError("Number of simulations must be greater than 0")
-            if num_simulations > 100000:
-                print("Simulations capped at 100,000")
-                num_simulations = 100000
+            if num_simulations > 5000:
+                print("Simulations capped at 5,000")
+                num_simulations = 5000
             break
         except ValueError:
             print("Invalid input", e)
